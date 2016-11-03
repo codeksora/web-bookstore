@@ -14,9 +14,11 @@ class Tienda extends CI_Controller {
 			if($this->libros->findByRewrite($rewrite)):
 				$fila = $this->libros->findByRewrite($rewrite);
 				$data = array(
+					"id" => $fila->libroId,
 					"titulo" => $fila->titulo,
 					"descripcion" => $fila->descripcion,
-					"imagen" => $fila->imagen
+					"imagen" => $fila->imagen,
+					"precio" => $fila->precioNuevo
 				);
 
 				$this->load->view('templates/header');

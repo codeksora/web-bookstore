@@ -1,9 +1,9 @@
 <?php
 
-echo'	
+echo'
 	<section id="advertisement">
 		<div class="container">
-			<img src="images/shop/advertisement.jpg" alt="" />
+			<img src="' . base_url() . 'assets/images/shop/advertisement.jpg" alt="" />
 		</div>
 	</section>
 

@@ -9,7 +9,7 @@ echo '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>B-Store</title>
     <link href="' . base_url() . 'assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="' . base_url() . 'assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="' . base_url() . 'assets/css/prettyPhoto.css" rel="stylesheet">
@@ -21,7 +21,7 @@ echo '
     <script src="' . base_url() . 'assets/js/html5shiv.js"></script>
     <script src="' . base_url() . 'assets/js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="shortcut icon" href="' . base_url() . 'assets/images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
@@ -61,30 +61,7 @@ echo '
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
+							<a href="index.html"><img src="' . base_url() . 'assets/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
@@ -120,9 +97,8 @@ echo '
 								<li class="dropdown"><a href="#">Tienda<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="' . base_url() . 'tienda">Productos</a></li>
-										<li><a href="product-details.html">Product Details</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="' . base_url() . 'carrito">Carrito</a></li>
 										<li><a href="login.html">Login</a></li>
                                     </ul>
                                 </li>
@@ -132,7 +108,6 @@ echo '
 										<li><a href="blog-single.html">Blog Single</a></li>
                                     </ul>
                                 </li>
-								<li><a href="404.html">404</a></li>
 								<li><a href="' . base_url() . 'contactanos">Contáctanos</a></li>
 							</ul>
 						</div>

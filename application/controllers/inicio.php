@@ -5,7 +5,20 @@ class Inicio extends CI_Controller {
 
 	public function index() {
 		$result = $this->libros->findAll();
-		$data = array("findAllLibros" => $result);
+		$result1 = $this->libros->findByLimit(3);
+		$result2 = $this->categorias->findAll();
+		$result3 = $this->libros->findByCategoria();
+		$result4 = $this->autores->findAll();
+
+		$data = array(
+			"findAllLibros" => $result,
+			"findByLimitLibros" => $result1,
+			"findAllCategorias" => $result2,
+			"findByCategoriaLibros" => $result3,
+			"findAllAutores" => $result4
+		);
+
+		if(!isset($_SESSION["contador"])) $_SESSION["contador"] = 0;
 
 		$this->load->view('templates/header');
 		$this->load->view('inicio_view', $data);

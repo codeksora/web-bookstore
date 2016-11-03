@@ -4,8 +4,8 @@
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
-		
+	};
+
 /*scroll to top*/
 
 $(document).ready(function(){
@@ -27,4 +27,23 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+
+    $(".item").eq(0).addClass("active");
+    $("ul.nav-tabs li").eq(0).addClass("active");
+    $(".tab-pane").eq(0).addClass("active");
+
+    $(".cart").on("click", function() {
+        var id_carrito = $(this).attr("data-id");
+
+        $.ajax({
+    		method: "POST",
+    		url: "/github/web-bookstore/carrito/contador",
+    		data: {
+                id: id_carrito
+            }
+    	})
+		.done(function(resp) {
+			alert(resp);
+		});
+    });
 });
