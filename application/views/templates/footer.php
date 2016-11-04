@@ -8,7 +8,7 @@ echo '
                 <div class="col-sm-2">
                     <div class="companyinfo">
                         <h2><span>b</span>-store</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                        <p>Una tienda virtual reconocida por muchos usuarios, donde encontrarás tus libros favoritos.</p>
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -92,7 +92,9 @@ echo '
     </div>
 
 </footer><!--/Footer-->
-
+<div id="alerta">
+    <p></p>
+</div>
 <script>
       function initMap() {
         // Create a map object and specify the DOM element for display.

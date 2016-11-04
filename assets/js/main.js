@@ -42,8 +42,20 @@ $(document).ready(function(){
                 id: id_carrito
             }
     	})
-		.done(function(resp) {
-			alert(resp);
+		.done(function() {
+			alerta("Libro agregado al carrito");
 		});
     });
+
+    $(".cart_info table tbody").load("/github/web-bookstore/carrito/contador", function(){
+
+    });
 });
+var mensaje;
+function alerta(mensaje) {
+    $("#alerta p").text(mensaje);
+    $("#alerta").fadeIn();
+    setTimeout(function() {
+        $("#alerta").fadeOut()
+    }, 3000);
+}

@@ -2533,3 +2533,20 @@ h2.title {
 .logo img{
     width: 139px;
 }
+
+#alerta {
+    background: #444;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 3px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    display: none;
+}
+
+#alerta p {
+    margin: 0;
+    color: #fff;
+}

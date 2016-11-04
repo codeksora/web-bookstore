@@ -92,7 +92,7 @@ echo '
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Últimos libros</h2>';
-						foreach ($findAllLibros->result() as $libro):
+						foreach ($findByLimitLibrosInicio->result() as $libro):
 							echo '<div class="col-sm-4">
 								<div class="product-image-wrapper">
 									<div class="single-products">
@@ -112,8 +112,7 @@ echo '
 									</div>
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+											<li><a href="#"><i class="fa fa-plus-square"></i>Agregar a deseados</a></li>
 										</ul>
 									</div>
 								</div>

@@ -21,6 +21,11 @@
      public function findByCategoria() {
          $this->db->order_by("libroId", "desc");
          return $this->db->get('libros');
+     }
+
+     public function findById($id = "") {
+         $result = $this->db->get_where('libros', array('libroId' => $id), 1);
+         return $result->row();
 
      }
  }
