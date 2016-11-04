@@ -1,3 +1,4 @@
+var urlGlobal = "/github/web-bookstore/";
 /*price range*/
 
  $('#sl2').slider();
@@ -33,13 +34,14 @@ $(document).ready(function(){
     $(".tab-pane").eq(0).addClass("active");
 
     $(".cart").on("click", function() {
-        var id_carrito = $(this).attr("data-id");
-
+        var $id_carrito = $(this).attr("data-id"),
+            $cantidad = $("#cantidad").val();
         $.ajax({
     		method: "POST",
-    		url: "/github/web-bookstore/carrito/contador",
+    		url: urlGlobal + "carrito/contador",
     		data: {
-                id: id_carrito
+                id: $id_carrito,
+                cant: $cantidad
             }
     	})
 		.done(function() {
@@ -47,11 +49,42 @@ $(document).ready(function(){
 		});
     });
 
-    $(".cart_info table tbody").load("/github/web-bookstore/carrito/contador", function(){
+    $(".cart_info table tbody").load(urlGlobal + "carrito/contador", function(){
+        $.ajax({
+            method: "POST",
+            url: urlGlobal + "carrito/precio_total",
+            data: {}
+        })
+        .done(function(resp){
+            $("#precioTotal").html(resp);
+        });
 
+        $(".cart_delete a.cart_quantity_delete").on("click", function(e){
+    		e.preventDefault();
+
+    		var $id_libro = $(this).attr("data-id");
+
+    		$.ajax({
+    			method: "POST",
+    			url: urlGlobal + "carrito/eliminar",
+    			data: {
+                    id: $id_libro
+                }
+    		}).done(function(resp){
+    			if(resp == "true") {
+    				$(".cart_info table tbody").html("<tr><td colspan='6' align='center'>No hay libros en el carrito</td></tr>");
+    				$("#precioTotal").html("$ 0.00");
+    			}
+    			else $("#precioTotal").html(resp);
+            });
+
+    		$(this).parents("tr").remove();
+    	});
     });
 });
+
 var mensaje;
+
 function alerta(mensaje) {
     $("#alerta p").text(mensaje);
     $("#alerta").fadeIn();

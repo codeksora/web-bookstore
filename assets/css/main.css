@@ -1303,7 +1303,6 @@ h2.title {
   margin-left: 20px;
 }
 
-
 .shop-details-tab {
   border: 1px solid #F7F7F0;
   margin-bottom: 75px;
@@ -2544,6 +2543,7 @@ h2.title {
     bottom: 10px;
     left: 10px;
     display: none;
+    z-index: 999;
 }
 
 #alerta p {

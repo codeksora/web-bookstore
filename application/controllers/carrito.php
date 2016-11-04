@@ -12,10 +12,10 @@ class Carrito extends CI_Controller {
     public function contador() {
         if($this->input->post("id")) {
             $_SESSION["libro"][$_SESSION["contador"]] = $this->input->post("id");
-            $_SESSION["cantidad"][$_SESSION["contador"]] = 1;
+            $_SESSION["cantidad"][$_SESSION["contador"]] = $this->input->post("cant");
 
             $fila = $this->libros->findById($_SESSION["libro"][$_SESSION["contador"]]);
-                $_SESSION["precioLibro"][$_SESSION["contador"]] = $fila->precioNuevo;
+                $_SESSION["precioLibro"][$_SESSION["contador"]] = $fila->precioNuevo * $this->input->post("cant");
             $_SESSION["contador"]++;
         }
 
@@ -53,5 +53,31 @@ class Carrito extends CI_Controller {
             endif;
         endfor;
 	}
+
+	public function eliminar() {
+		$id = $this->input->post("id");
+		unset($_SESSION["libro"][$id]);
+
+		$precioTotal = 0;
+		for($i = 0; $i<$_SESSION["contador"]; $i++):
+			if(array_key_exists($i, $_SESSION["libro"])):
+				$precioTotal += $_SESSION["precioLibro"][$i];
+			endif;
+		endfor;
+
+		if(!isset($_SESSION["libro"]) || (count($_SESSION["libro"]) == 0)) echo "true";
+		else echo "$ " . number_format($precioTotal, 2, '.', '');
+	}
+
+	public function precio_total() {
+		$precioTotal = 0;
+		for($i = 0; $i<$_SESSION["contador"]; $i++) {
+			if(array_key_exists($i, $_SESSION["libro"])) {
+				$precioTotal += $_SESSION["precioLibro"][$i];
+			}
+		}
+		echo "$ " . number_format($precioTotal, 2, '.', '');
+	}
+
 
 }
