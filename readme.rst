@@ -2,7 +2,7 @@
 Aviso
 ###################
 
-Este proeycto aún no esta finalizado.
+Este proyecto aún no esta finalizado.
 
 ###################
 Tienda virtual de libros B-Store v1.0
