@@ -79,6 +79,7 @@ $(document).ready(function(){
             });
 
     		$(this).parents("tr").remove();
+            alerta("Libro eliminado del carrito");
     	});
     });
 });
