@@ -61,17 +61,29 @@ echo '
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="' . base_url() . 'assets/images/home/logo.png" alt="" /></a>
+							<a href="' . base_url() . '"><img src="' . base_url() . 'assets/images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Mi cuenta</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> Lista de deseos</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="' . base_url() . 'carrito"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							<ul class="nav navbar-nav">';
+                            if($this->session->userdata("nombre")):
+                                echo '
+								<li><a href="' . base_url() . 'cuenta"><i class="fa fa-user"></i> Mi cuenta</a></li>';
+                            endif;
+                            echo '
+                                <li><a href="' . base_url() . 'tienda"><i class="fa fa-book"></i> Tienda</a></li>
+								<li><a href="' . base_url() . 'carrito"><i class="fa fa-shopping-cart"></i> Carrito</a></li>';
+                            if(!$this->session->userdata("nombre")):
+                                echo '
+								<li><a href="' . base_url() . 'login"><i class="fa fa-lock"></i> Login</a></li>';
+                            endif;
+
+                            if($this->session->userdata("nombre")):
+                                echo '
+								<li><a href="' . base_url() . 'logout"><i class="fa fa-sign-out"></i> Cerrar sesión</a></li>';
+                            endif;
+                            echo '
 							</ul>
 						</div>
 					</div>
@@ -97,15 +109,8 @@ echo '
 								<li class="dropdown"><a href="#">Tienda<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="' . base_url() . 'tienda">Productos</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="' . base_url() . 'carrito">Carrito</a></li>
-										<li><a href="login.html">Login</a></li>
-                                    </ul>
-                                </li>
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+										<li><a href="' . base_url() . 'login">Login</a></li>
                                     </ul>
                                 </li>
 								<li><a href="' . base_url() . 'contactanos">Contáctanos</a></li>

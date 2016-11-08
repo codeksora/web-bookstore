@@ -33,6 +33,65 @@ $(document).ready(function(){
     $("ul.nav-tabs li").eq(0).addClass("active");
     $(".tab-pane").eq(0).addClass("active");
 
+    $(".check_out").on("click", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+    		method: "POST",
+    		url: urlGlobal + "finalizarcompra",
+    		data: {}
+    	})
+    	.done(function(response) {
+    		switch(response) {
+                case "1": location.replace(urlGlobal + "cuenta"); break;
+                case "2": alerta("No hay saldo disponible."); break;
+                case "3": location.replace(urlGlobal + "login"); break;
+            }
+    	});
+    });
+
+    $(".signup-form form").on("submit", function(e){
+    	e.preventDefault();
+
+    	var data_form = $(this).serializeArray();
+
+    	$.ajax({
+    		method: "POST",
+    		url: urlGlobal + "login/registrar",
+    		data: data_form
+    	})
+    	.done(function(response) {
+    		if(response == "true"){
+    			alerta("Registrado correctamente");
+    			$(".signup-form form")[0].reset();
+    		} else {
+    			alerta("Este correo ya se encuentra registrado.");
+    		}
+    	});
+    });
+
+    $(".login-form form").on("submit", function(e){
+    	e.preventDefault();
+    	var data_form = $(this).serializeArray();
+
+    	$.ajax({
+    		method: "POST",
+    		url: urlGlobal + "login/loguear",
+    		data: data_form
+    	})
+    		.done(function(response) {
+    			if(response == "true"){
+    				alerta("Accediendo...");
+                    setTimeout(function() {
+                        location.replace(urlGlobal);
+                    }, 2000);
+
+    			} else {
+    				alerta("Email y/o contraseña incorrectas");
+    			}
+    		});
+    });
+
     $(".cart").on("click", function() {
         var $id_carrito = $(this).attr("data-id"),
             $cantidad = $("#cantidad").val();
@@ -80,6 +139,70 @@ $(document).ready(function(){
 
     		$(this).parents("tr").remove();
             alerta("Libro eliminado del carrito");
+    	});
+
+        $(".cart_quantity_up").on("click", function(e){
+    		e.preventDefault();
+    		var input = $(this).parents().children(".cart_quantity_input").val();
+
+    		if((input+1) >= 0) $(this).parents().children(".cart_quantity_input").val(parseInt(input)+1);
+
+    		var cantidad = $(this).parents().children(".cart_quantity_input").val();
+    		var id = $(this).parents().children(".cart_quantity_input").attr("data-id");
+    		var totalPrice = $(this).parents().children(".cart_quantity_input").parents("tr").find(".cart_total_price");
+
+            $.ajax({
+    			method: "POST",
+    			url: urlGlobal + "carrito/cantidad_libro",
+    			data: {
+                    cantidad: cantidad,
+                    id: id
+                }
+    		})
+    			.done(function(resp){
+    				totalPrice.html(resp);
+    			});
+
+                $.ajax({
+                    method: "POST",
+                    url: urlGlobal + "carrito/precio_total",
+                    data: {}
+                })
+                .done(function(resp){
+                    $("#precioTotal").html(resp);
+                });
+    	});
+
+        $(".cart_quantity_down").on("click", function(e){
+    		e.preventDefault();
+    		var input = $(this).parents().children(".cart_quantity_input").val();
+
+    		if((input-1) >= 0) $(this).parents().children(".cart_quantity_input").val(parseInt(input)-1);
+
+    		var cantidad = $(this).parents().children(".cart_quantity_input").val();
+    		var id = $(this).parents().children(".cart_quantity_input").attr("data-id");
+    		var totalPrice = $(this).parents().children(".cart_quantity_input").parents("tr").find(".cart_total_price");
+
+            $.ajax({
+    			method: "POST",
+    			url: urlGlobal + "carrito/cantidad_libro",
+    			data: {
+                    cantidad: cantidad,
+                    id: id
+                }
+    		})
+    			.done(function(resp){
+    				totalPrice.html(resp);
+    			});
+
+                $.ajax({
+                    method: "POST",
+                    url: urlGlobal + "carrito/precio_total",
+                    data: {}
+                })
+                .done(function(resp){
+                    $("#precioTotal").html(resp);
+                });
     	});
     });
 });

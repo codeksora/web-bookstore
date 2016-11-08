@@ -31,8 +31,8 @@ echo '
 	<section id="do_action">
 		<div class="container">
 			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+				<h3>Precio total de la compra</h3>
+				<p>Una vez finalizada la compra, este será enviado por delivery a su domicilio, y lo tendrá tambien disponible en versión digital.</p>
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -43,8 +43,8 @@ echo '
 							<li>Shipping Cost <span>Gratis</span></li>
 							<li>Total <span id="precioTotal">$ 0.00</span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+								<a class="btn btn-default update" href="' . base_url() . 'tienda">Actualizar</a>
+							<a class="btn btn-default check_out" href="' . base_url() . 'finalizarcompra">Finalizar compra</a>
 					</div>
 				</div>
 			</div>
