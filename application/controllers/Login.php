@@ -41,6 +41,15 @@ class Login extends CI_Controller {
 				"saldo" => $fila->saldo,
 				"logeado" => TRUE
 			);
+			if($fila->admin == 1):
+				$data = array(
+					"admin-id" => $fila->usuarioId,
+					"admin-usuario" => $fila->nombre . " " . $fila->apellido,
+					"admin-email" => $fila->email,
+					"admin-logeado" => TRUE
+				);
+				echo "admin";
+			endif;
 			$this->session->set_userdata($data);
 			echo "true";
 		else:

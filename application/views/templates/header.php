@@ -67,19 +67,19 @@ echo '
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">';
-                            if($this->session->userdata("nombre")):
+                            if($this->session->userdata("logeado") == TRUE):
                                 echo '
 								<li><a href="' . base_url() . 'cuenta"><i class="fa fa-user"></i> Mi cuenta</a></li>';
                             endif;
                             echo '
                                 <li><a href="' . base_url() . 'tienda"><i class="fa fa-book"></i> Tienda</a></li>
 								<li><a href="' . base_url() . 'carrito"><i class="fa fa-shopping-cart"></i> Carrito</a></li>';
-                            if(!$this->session->userdata("nombre")):
+                            if(!$this->session->userdata("logeado") == TRUE):
                                 echo '
 								<li><a href="' . base_url() . 'login"><i class="fa fa-lock"></i> Login</a></li>';
                             endif;
 
-                            if($this->session->userdata("nombre")):
+                            if($this->session->userdata("logeado") == TRUE):
                                 echo '
 								<li><a href="' . base_url() . 'logout"><i class="fa fa-sign-out"></i> Cerrar sesión</a></li>';
                             endif;

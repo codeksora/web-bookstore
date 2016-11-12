@@ -10,6 +10,10 @@ var urlGlobal = "/github/web-bookstore/";
 /*scroll to top*/
 
 $(document).ready(function(){
+    //admin
+
+
+
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
