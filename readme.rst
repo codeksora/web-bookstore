@@ -36,8 +36,8 @@ Instalación
 Para la instalación por favor leer la guía de usuario.
 El usuario para la administración es:
 
-Usuario: admin
-Contraseña: admin
+Usuario: admin@bookstore.website.tk
+Contraseña: 123456
 
 *******
 Licencia
