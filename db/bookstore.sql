@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2016 a las 02:07:51
+-- Tiempo de generación: 12-11-2016 a las 04:38:50
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -113,51 +113,7 @@ CREATE TABLE `libros_usuario` (
 --
 
 INSERT INTO `libros_usuario` (`libros_usuarioId`, `usuarioId`, `libroId`, `cantidad`, `fecha`) VALUES
-(1, 1, 1, NULL, NULL),
-(2, 1, 3, NULL, NULL),
-(3, 1, 13, NULL, NULL),
-(4, 1, 13, NULL, NULL),
-(5, 1, 13, NULL, NULL),
-(6, 1, 7, NULL, NULL),
-(7, 1, 13, NULL, NULL),
-(8, 1, 7, NULL, NULL),
-(9, 2, 12, NULL, NULL),
-(10, 11, 8, 4, '2016-11-06 23:53:32'),
-(11, 11, 12, 5, '2016-11-06 23:53:32'),
-(12, 1, 8, 16, '2016-11-06 18:01:39'),
-(13, 1, 12, 4, '2016-11-06 18:41:06'),
-(14, 1, 12, 4, '2016-11-06 18:41:18'),
-(15, 1, 12, 4, '2016-11-06 18:41:32'),
-(16, 1, 13, 1, '2016-11-06 18:45:44'),
-(17, 1, 13, 1, '2016-11-06 18:47:47'),
-(18, 1, 13, 1, '2016-11-06 18:48:14'),
-(19, 1, 13, 1, '2016-11-06 18:48:32'),
-(20, 1, 12, 1, '2016-11-06 19:07:23'),
-(21, 1, 13, 2, '2016-11-06 19:11:17'),
-(22, 1, 13, 2, '2016-11-06 19:11:43'),
-(23, 1, 12, 1, '2016-11-06 19:21:15'),
-(24, 1, 12, 1, '2016-11-06 19:22:11'),
-(25, 1, 12, 1, '2016-11-06 19:22:23'),
-(26, 1, 12, 1, '2016-11-06 19:23:13'),
-(27, 1, 12, 1, '2016-11-06 19:24:44'),
-(28, 1, 12, 1, '2016-11-06 19:28:28'),
-(29, 1, 12, 1, '2016-11-06 19:31:19'),
-(30, 1, 12, 1, '2016-11-06 19:31:41'),
-(31, 1, 12, 1, '2016-11-06 19:31:44'),
-(32, 1, 12, 1, '2016-11-06 19:32:07'),
-(33, 1, 12, 1, '2016-11-06 19:32:27'),
-(34, 1, 12, 1, '2016-11-06 19:32:37'),
-(35, 1, 12, 1, '2016-11-06 19:32:42'),
-(36, 1, 13, 1, '2016-11-06 19:34:03'),
-(37, 1, 13, 1, '2016-11-06 19:35:47'),
-(38, 1, 13, 1, '2016-11-06 19:35:55'),
-(39, 1, 13, 1, '2016-11-06 19:36:41'),
-(40, 1, 13, 1, '2016-11-06 19:37:21'),
-(41, 1, 13, 1, '2016-11-06 19:38:14'),
-(42, 1, 13, 1, '2016-11-06 19:38:24'),
-(43, 1, 13, 1, '2016-11-06 19:38:53'),
-(44, 1, 13, 2, '2016-11-06 19:39:31'),
-(45, 1, 12, 1, '2016-11-06 23:13:13');
+(49, 15, 13, 1, '2016-11-11 22:30:36');
 
 -- --------------------------------------------------------
 
@@ -172,28 +128,17 @@ CREATE TABLE `usuarios` (
   `direccion` varchar(255) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `contrasena` varchar(45) DEFAULT NULL,
-  `saldo` decimal(5,2) DEFAULT NULL
+  `saldo` decimal(5,2) DEFAULT NULL,
+  `admin` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usuarioId`, `nombre`, `apellido`, `direccion`, `email`, `contrasena`, `saldo`) VALUES
-(1, 'Carlos', 'Chirito', NULL, 'chiritorom@gmail.com', '123', '33.01'),
-(2, 'user1', 'user1', NULL, 'webmaster@fastlane.pe', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(3, 'Carlos', 'Romero', NULL, 'ccr_kl@hotmail.com', '123456', '0.00'),
-(4, '', '', NULL, 'webmaster@fastlane.pes', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(5, '', '', NULL, 'webmaster@fastlane.ped', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(6, '', '', NULL, 'webmaster@fastlane.pesd', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(7, 'Sheyla', NULL, NULL, 'alechirito@hotmail.com', '1234', '0.00'),
-(8, 'Sheyla', NULL, NULL, 'alechirito@hotmail.comk', '1234', '0.00'),
-(9, 'asd', NULL, NULL, 'webmaster@fa.c', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(10, 'Carlos', NULL, NULL, 'webmasterla@fastlane.pe', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(11, 'Carlos', 'Chirito', NULL, 'webmasterma@fastlane.pe', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(12, 'Carlos', 'Chirito', NULL, 'webmaster123@fastlane.pe', '6ZaxN2Vzm9NUJT2y', '0.00'),
-(13, 'Car', 'asd', 'asd', 'chiritorom@gmail.com', 'asd', NULL),
-(14, 'Carlos', '123', '123', 'chiritorom2@gmail.com', '123', NULL);
+INSERT INTO `usuarios` (`usuarioId`, `nombre`, `apellido`, `direccion`, `email`, `contrasena`, `saldo`, `admin`) VALUES
+(1, 'Carlos', 'Chirito', NULL, 'admin@bookstore.website.tk', '123', '33.01', 1),
+(15, 'Carlos Alexander', 'Chirito Romero', 'Jr. Tacna 1151 Magdalena', 'chiritorom@bookstore.website.tk', '123456', '4.01', 0);
 
 --
 -- Índices para tablas volcadas
@@ -241,12 +186,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `autorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `autorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoriaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `categoriaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
@@ -256,12 +201,12 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros_usuario`
 --
 ALTER TABLE `libros_usuario`
-  MODIFY `libros_usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `libros_usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Restricciones para tablas volcadas
 --
