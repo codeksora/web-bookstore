@@ -42,6 +42,22 @@ class Admin extends CI_Controller {
                             $autor = $this->input->post("autor");
                             $this->autores->addAutor($autor);
                             break;
+                        case 3:
+                            $titulo = $this->input->post("titulo");
+                            $url = $this->input->post("url");
+                            $precio = $this->input->post("precio");
+                            $descripcion = $this->input->post("descripcion");
+                            $categoria = $this->input->post("categoria");
+                            $autor = $this->input->post("autor");
+
+                            if(isset($_FILES["imagen"])){
+
+                                   move_uploaded_file($_FILES["imagen"]['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . "/github/web-bookstore/assets/images/libros/".$url.".jpg");
+                             }
+
+                             $this->libros->addLibro($titulo, $url, $precio, $descripcion, $url . ".jpg", $categoria, $autor);
+
+                            break;
                     }
                 endif;
     		else:

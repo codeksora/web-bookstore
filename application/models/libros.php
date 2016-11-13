@@ -28,4 +28,18 @@
          return $result->row();
 
      }
+
+     public function addLibro($titulo = "", $url = "", $precio = "", $descripcion = "", $imagen = "", $categoria = "", $autor = "") {
+         $data = array(
+             "titulo" => $titulo,
+             "rewrite" => $url,
+             "precioNuevo" => $precio,
+             "descripcion" => $descripcion,
+             "imagen" => $imagen,
+             "categoriaId" => $categoria,
+             "autorId" => $autor
+         );
+
+         return $this->db->insert('libros', $data);
+     }
  }

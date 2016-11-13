@@ -57,6 +57,24 @@ $(document).ready(function() {
                     }, 2000);
     		});
     });
+
+    $("#libro").on("submit", function(e) {
+        e.preventDefault();
+
+        $.ajax({
+    		method: "POST",
+    		url: urlGlobal + "admin/dashboard/3",
+    		data: new FormData(this),
+            contentType: false,
+            processData: false
+    	})
+    		.done(function(resp) {
+                alerta("Libro agregado");
+				setTimeout(function() {
+                    location.reload();
+                }, 2000);
+    		});
+    });
 });
 
 var mensaje;

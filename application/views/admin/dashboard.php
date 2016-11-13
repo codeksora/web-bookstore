@@ -20,7 +20,7 @@ echo'
 					<div class="panel-heading">Agregar libro</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<form role="form" action="/proceso" method="post" enctype="multipart/form-data">
+							<form id="libro" enctype="multipart/form-data">
 								<div class="form-group">
 									<label>Titulo</label>
 									<input type="text" name="titulo" class="form-control" placeholder="Placeholder">

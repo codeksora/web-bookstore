@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2016 a las 04:38:50
+-- Tiempo de generación: 13-11-2016 a las 16:04:38
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 5.6.21
 
@@ -40,7 +40,9 @@ INSERT INTO `autores` (`autorId`, `nombre`) VALUES
 (2, 'Edgar Allan Poe'),
 (3, 'Bram Stoker'),
 (4, 'Anna Todd'),
-(5, 'Mark Twain');
+(5, 'Mark Twain'),
+(6, 'R.L.Stine'),
+(7, 'Gabriel García Márquez');
 
 -- --------------------------------------------------------
 
@@ -61,7 +63,9 @@ CREATE TABLE `categorias` (
 INSERT INTO `categorias` (`categoriaId`, `descripcion`, `rewrite`) VALUES
 (1, 'Terror', 'terror'),
 (2, 'Juvenil', 'juvenil'),
-(3, 'Comedia', 'comedia');
+(3, 'Comedia', 'comedia'),
+(4, 'Aventura', 'aventura'),
+(5, 'Drama', 'drama');
 
 -- --------------------------------------------------------
 
@@ -92,7 +96,8 @@ INSERT INTO `libros` (`libroId`, `titulo`, `categoriaId`, `precioNuevo`, `precio
 (7, 'It', 1, '10.00', '15.00', 'It (en idioma español, «Eso») es una novela de terror publicada en 1986 por el escritor estadounidense Stephen King. Cuenta la historia de un grupo de chicos que son aterrorizados por un malvado monstruo -al que llaman «Eso»- que es capaz de cambiar de forma, alimentándose del terror que produce en sus víctimas.', 'it.jpg', 'it', 1),
 (8, 'After. En mil pedazos (Serie After 2)', 2, '12.50', '14.50', 'Una historia que nadie quiere que acabe y todo el mundo quiere vivir.Tessa se acaba de despertar de un sueño. Es consciente de que era todo demasiado bonito para ser cierto… ¿Es posible volver a sonreír cuando todo se rompe en pedazos? Ella y Hardin parecían hechos el uno para el otro, como dos almas gemelas, pero él lo ha roto todo, se ha acabado el sueño para siempre. ¿Cómo ha podido ser tan ingenua? Si quiere recuperarla, Hardin deberá luchar como nunca por lo que ha hecho. ¿Estará preparado? ¿Se puede perdonar todo?', 'after-en-mil-pedazos.jpg', 'after-en-mil-pedazos', 4),
 (12, 'Carrie', 1, '15.00', '0.00', 'Carrie es la primera novela publicada del escritor estadounidense Stephen King, publicada en 1974. Es uno de los libros más censurados en las escuelas de EE.UU. y la película incluso estuvo prohibida en Finlandia. La mayor parte del libro está escrito con una estructura epistolar en forma de recortes de noticias, cartas, extractos de libros, etc. A pesar de ser su primera obra publicada y la que lo lanzó a la fama, no fue la primera que escribió. En 1976, el director de cine Brian de Palma hizo la primera película basada en la novela.', 'carrie.jpg', 'carrie', 1),
-(13, 'Un yanqui en la corte del rey Arturo', 3, '25.99', NULL, 'Un yanqui en la corte del Rey Arturo (A Connecticut Yankee in King Arthur''s Court) es una obra literaria del escritor estadounidense Mark Twain que enmarca ideas religioso-políticas y conocimientos tecnológicos de la época del autor en una ficción caballeresca satírica.', 'un-yanqui-en-la-corte-del-rey-arturo.jpg', 'un-yanqui-en-la-corte-del-rey-arturo', 5);
+(13, 'Un yanqui en la corte del rey Arturo', 3, '25.99', NULL, 'Un yanqui en la corte del Rey Arturo (A Connecticut Yankee in King Arthur''s Court) es una obra literaria del escritor estadounidense Mark Twain que enmarca ideas religioso-políticas y conocimientos tecnológicos de la época del autor en una ficción caballeresca satírica.', 'un-yanqui-en-la-corte-del-rey-arturo.jpg', 'un-yanqui-en-la-corte-del-rey-arturo', 5),
+(14, 'Cien años de soledad', 5, '13.59', NULL, 'Cien años de soledad es una novela del escritor colombiano Gabriel García Márquez, ganador del Premio Nobel de Literatura en 1982. Es considerada una obra maestra de la literatura hispanoamericana y universal, así como una de las obras más traducidas y leídas en español.1 Fue catalogada como una de las obras más importantes de la lengua castellana durante el IV Congreso Internacional de la Lengua Española celebrado en Cartagena de Indias en marzo de 2007.2 Fue incluida en la lista de las 100 mejores novelas en español del siglo XX del periódico español El Mundo,3 en la lista de los 100 libros del siglo XX del diario francés Le Monde y en los 100 mejores libros de todos los tiempos del Club de libros de Noruega.4', 'cien-anos-de-soledad.jpg', 'cien-anos-de-soledad', 7);
 
 -- --------------------------------------------------------
 
@@ -113,7 +118,9 @@ CREATE TABLE `libros_usuario` (
 --
 
 INSERT INTO `libros_usuario` (`libros_usuarioId`, `usuarioId`, `libroId`, `cantidad`, `fecha`) VALUES
-(49, 15, 13, 1, '2016-11-11 22:30:36');
+(49, 15, 13, 1, '2016-11-11 22:30:36'),
+(50, 16, 13, 1, '2016-11-12 23:13:47'),
+(51, 16, 12, 1, '2016-11-12 23:13:47');
 
 -- --------------------------------------------------------
 
@@ -138,7 +145,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usuarioId`, `nombre`, `apellido`, `direccion`, `email`, `contrasena`, `saldo`, `admin`) VALUES
 (1, 'Carlos', 'Chirito', NULL, 'admin@bookstore.website.tk', '123', '33.01', 1),
-(15, 'Carlos Alexander', 'Chirito Romero', 'Jr. Tacna 1151 Magdalena', 'chiritorom@bookstore.website.tk', '123456', '4.01', 0);
+(15, 'Carlos Alexander', 'Chirito Romero', 'Jr. Tacna 1151 Magdalena', 'chiritorom@bookstore.website.tk', '123456', '4.01', 0),
+(16, 'Carlos', 'Chirito', 'Mi dirección', 'chiritorom2@bookstore.website.tk', '123', '9.01', 0);
 
 --
 -- Índices para tablas volcadas
@@ -186,27 +194,27 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `autorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `autorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `categoriaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `categoriaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `libroId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `libroId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `libros_usuario`
 --
 ALTER TABLE `libros_usuario`
-  MODIFY `libros_usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `libros_usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `usuarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Restricciones para tablas volcadas
 --
